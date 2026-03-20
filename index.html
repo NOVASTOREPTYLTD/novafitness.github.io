@@ -1,38 +1,475 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nova Workout</title>
-  <meta name="description" content="Nova Workout official website.">
+  <title>Nova Workout | Official Website</title>
+  <meta name="description" content="Nova Workout is a premium workout and gym tracker built for consistency, streaks, goals, and progress.">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #111;
+    :root {
+      --bg: #001233;
+      --surface: #001D3D;
+      --surface-2: #0A254A;
+      --text: #F4F8FF;
+      --muted: #AFC7E8;
+      --cyan: #00E5FF;
+      --ember: #FF6B35;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --glass: rgba(255,255,255,0.06);
     }
-    h1 { margin-bottom: 8px; }
-    a { color: #0b57d0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(0,229,255,0.16), transparent 28%),
+        radial-gradient(circle at left center, rgba(255,107,53,0.08), transparent 22%),
+        linear-gradient(180deg, #000B1F 0%, #001233 100%);
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(0,18,51,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0,229,255,0.10);
+      border: 1px solid rgba(0,229,255,0.24);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 54px;
+      line-height: 1.03;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), #48F0FF);
+      color: #001233;
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .device-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .device-screen {
+      background:
+        radial-gradient(circle at top right, rgba(0,229,255,0.16), transparent 26%),
+        linear-gradient(180deg, #001733 0%, #001D3D 100%);
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .screen-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .streak {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,107,53,0.12);
+      border: 1px solid rgba(255,107,53,0.24);
+      color: #FFB08D;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .mini-label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .mini-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .mini-sub {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 20px 0 58px;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 780px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
     .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .support-box {
+      margin-top: 8px;
+      padding: 30px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(0,229,255,0.12), rgba(255,107,53,0.10));
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .support-box h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .support-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 38px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .header-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .hero {
+        padding-top: 46px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero p,
+      .lead {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Nova Workout</h1>
-  <p>Official website for the Nova Workout app.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Nova Workout</div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/delete-account.html">Delete Account</a>
+        <a href="/app-ads.txt">app-ads.txt</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="card">
-    <p><a href="/privacy-policy.html">Privacy Policy</a></p>
-    <p><a href="/delete-account.html">Delete Account</a></p>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">STELLAR MIDNIGHT EXPERIENCE</div>
+          <h1>Premium fitness tracking with a futuristic edge.</h1>
+          <p>
+            Nova Workout And Gym Tracker helps you log workouts, build streaks,
+            track goals, and stay consistent with a sleek luxury dark mode built
+            around focus, momentum, and progress.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="/privacy-policy.html">Privacy Policy</a>
+            <a class="btn btn-secondary" href="/delete-account.html">Delete Account</a>
+          </div>
+        </div>
+
+        <div class="device-card">
+          <div class="device-screen">
+            <div class="screen-top">
+              <strong>Nova Workout</strong>
+              <span>WARMING UP...</span>
+            </div>
+
+            <div class="streak">PULSING EMBER STREAK: 12 DAYS</div>
+
+            <div class="mini-card">
+              <div class="mini-label">This Week</div>
+              <div class="mini-value">4 Workouts</div>
+              <div class="mini-sub">Track sessions, exercises, sets, reps, and progress.</div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-label">Current Focus</div>
+              <div class="mini-value">Consistency</div>
+              <div class="mini-sub">Build momentum with streaks, goals, and repeatable habits.</div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-label">Visual Identity</div>
+              <div class="mini-value">Cyan + Ember</div>
+              <div class="mini-sub">Deep Space Navy foundation with premium futuristic accents.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Built for progress</h2>
+        <p class="lead">
+          From workout logging and daily goals to streak systems and progression,
+          Nova Workout is designed to make consistency feel premium, motivating,
+          and clean. Every part of the experience is grounded in your brand's
+          signature palette: Deep Space Navy, Electric Cyan, and Pulsing Ember.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Track every workout</h3>
+            <p>
+              Keep a structured history of your gym sessions, exercises, routines,
+              sets, reps, weights, notes, and milestones.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Stay locked into streaks</h3>
+            <p>
+              Build consistency with a system that rewards momentum and gives users
+              a strong visual sense of progress and discipline.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Designed to feel premium</h3>
+            <p>
+              The Stellar Midnight visual system creates a luxury dark mode
+              experience that feels futuristic, focused, and modern.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="support-box">
+          <div>
+            <h3>Support, privacy, and account help</h3>
+            <p>
+              For policy questions, account deletion requests, or support needs,
+              use the links below or contact support@novastore.co.za.
+            </p>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="/privacy-policy.html">Privacy Policy</a>
+            <a class="btn btn-secondary" href="/delete-account.html">Delete Account</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/delete-account.html">Delete Account</a>
+      </div>
+      <div>© 2026 Nova Workout. All rights reserved.</div>
+    </div>
+  </footer>
 </body>
 </html>
