@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nova Workout | Official Website</title>
-  <meta name="description" content="Nova Workout is a premium fitness tracker built for workouts, streaks, quests, progress, and consistency.">
+  <title>Nova: Fitness Game | Official Website</title>
+  <meta name="description" content="Nova: Fitness Game is a premium fitness game built for workouts, streaks, quests, progress, and consistency.">
 
   <style>
     :root {
@@ -83,22 +83,27 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      padding: 16px 0;
     }
 
     .brand-wrap {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
+      color: var(--text);
+      flex: 0 0 auto;
     }
 
     .brand-logo {
       width: 44px;
       height: 44px;
+      min-width: 44px;
+      max-width: 44px;
       object-fit: cover;
+      display: block;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 8px 20px rgba(0,0,0,0.28);
-      flex: 0 0 auto;
     }
 
     .brand-text {
@@ -111,6 +116,7 @@
       font-size: 16px;
       font-weight: 800;
       letter-spacing: 0.2px;
+      line-height: 1.1;
     }
 
     .brand-sub {
@@ -118,6 +124,7 @@
       color: var(--muted);
       letter-spacing: 0.8px;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .nav {
@@ -827,21 +834,21 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand-wrap" href="/">
-        <img class="brand-logo" src="/NovaWorkout.png" alt="Nova Workout logo">
+      <a class="brand-wrap" href="index.html">
+        <img class="brand-logo" src="NovaWorkout.png" alt="Nova: Fitness Game logo">
         <div class="brand-text">
-          <div class="brand-name">Nova Workout</div>
-          <div class="brand-sub">Gym tracker</div>
+          <div class="brand-name">Nova: Fitness Game</div>
+          <div class="brand-sub">Fitness game</div>
         </div>
       </a>
 
       <nav class="nav">
         <a href="#features">Features</a>
         <a href="#modules">Modules</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms-of-service.html">Terms of Service</a>
-        <a href="/delete-account.html">Delete Account</a>
-        <a href="/app-ads.txt">app-ads.txt</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="delete-account.html">Delete Account</a>
+        <a href="app-ads.txt">app-ads.txt</a>
       </nav>
     </div>
   </header>
@@ -858,15 +865,15 @@
           <h1>Train with structure. Progress with momentum.</h1>
 
           <p class="hero-copy">
-            Nova Workout combines practical workout tracking with a premium
+            Nova: Fitness Game combines practical workout tracking with a premium
             progression system. Plan sessions, complete daily quests, build
             streaks, earn Nova XP, and stay consistent with a cleaner, more
             motivating fitness experience.
           </p>
 
           <div class="button-row">
-            <a class="btn btn-primary" href="/privacy-policy.html">View Privacy Policy</a>
-            <a class="btn btn-secondary" href="/delete-account.html">Delete Account</a>
+            <a class="btn btn-primary" href="privacy-policy.html">View Privacy Policy</a>
+            <a class="btn btn-secondary" href="delete-account.html">Delete Account</a>
           </div>
 
           <div class="hero-stats">
@@ -889,10 +896,10 @@
           <div class="phone-screen">
             <div class="screen-topbar">
               <strong>14:42</strong>
-              <span>Nova Workout</span>
+              <span>Nova: Fitness Game</span>
             </div>
 
-            <h2 class="screen-title">NOVA WORKOUT</h2>
+            <h2 class="screen-title">NOVA</h2>
 
             <div class="quest-box">
               <div class="quest-kicker">Quest progress</div>
@@ -923,7 +930,7 @@
             <div class="session-card">
               <div class="session-kicker">Daily session</div>
               <div class="session-title">Workout Session</div>
-              <div class="session-meta">Monday, Mar 23 • Any time</div>
+              <div class="session-meta">Monday, Mar 23 - Any time</div>
               <div class="session-actions">
                 <div class="chip">Start Workout</div>
               </div>
@@ -948,56 +955,29 @@
 
         <div class="feature-grid">
           <article class="feature-card">
-            <div class="feature-icon">01</div>
-            <h3>Workout planning</h3>
-            <p>
-              Create structured sessions, repeat routines through the week, and
-              keep your training schedule organized in one place.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">02</div>
+            <div class="feature-icon">Q</div>
             <h3>Daily quests</h3>
             <p>
-              Complete smaller objectives like mobility, hydration, and logging
-              activity to keep momentum alive every day.
+              Complete small daily objectives that make showing up easier and
+              keep momentum alive even on lighter training days.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">03</div>
-            <h3>Streak and XP system</h3>
+            <div class="feature-icon">S</div>
+            <h3>Streaks and progress</h3>
             <p>
-              Turn consistency into progression with visible streaks, Nova XP,
-              rank movement, and unlockable rewards.
+              Track consistency over time with streaks, records, XP, and visible
+              progression built into the app experience.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">04</div>
-            <h3>Social ranking</h3>
+            <div class="feature-icon">F</div>
+            <h3>Social motivation</h3>
             <p>
-              Compete with friends, compare progress, and make your fitness
-              journey feel connected instead of isolated.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">05</div>
-            <h3>Profile identity</h3>
-            <p>
-              Customize your look with titles, borders, avatars, and cosmetics
-              earned through activity and progression.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">06</div>
-            <h3>Lifetime stats</h3>
-            <p>
-              Review long-term milestones, best streaks, total workouts, and
-              activity records as your account grows.
+              Rankings, shared plans, and friends features add accountability
+              without making the app noisy or distracting.
             </p>
           </article>
         </div>
@@ -1038,7 +1018,7 @@
             <div class="rank-avatar">A</div>
             <div>
               <div class="rank-name">Atlas</div>
-              <div class="rank-role">Rookie Lifter • Lv.2</div>
+              <div class="rank-role">Rookie Lifter - Lv.2</div>
             </div>
           </div>
 
@@ -1088,7 +1068,7 @@
                 </p>
               </div>
             </div>
-            <div class="arrow">›</div>
+            <div class="arrow">></div>
           </article>
 
           <article class="module-card">
@@ -1102,7 +1082,7 @@
                 </p>
               </div>
             </div>
-            <div class="arrow">›</div>
+            <div class="arrow">></div>
           </article>
 
           <article class="module-card">
@@ -1116,7 +1096,7 @@
                 </p>
               </div>
             </div>
-            <div class="arrow">›</div>
+            <div class="arrow">></div>
           </article>
 
           <article class="module-card">
@@ -1130,7 +1110,7 @@
                 </p>
               </div>
             </div>
-            <div class="arrow">›</div>
+            <div class="arrow">></div>
           </article>
         </div>
       </div>
@@ -1149,8 +1129,8 @@
           </div>
 
           <div class="button-row">
-            <a class="btn btn-primary" href="/privacy-policy.html">Privacy Policy</a>
-            <a class="btn btn-secondary" href="/delete-account.html">Delete Account</a>
+            <a class="btn btn-primary" href="privacy-policy.html">Privacy Policy</a>
+            <a class="btn btn-secondary" href="delete-account.html">Delete Account</a>
           </div>
         </div>
       </div>
@@ -1159,14 +1139,14 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/privacy-policy.html">Privacy Policy</a>
-      <a href="/terms-of-service.html">Terms of Service</a>
-      <a href="/delete-account.html">Delete Account</a>
-    </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="delete-account.html">Delete Account</a>
+      </div>
 
-      <div class="footer-copy">© 2026 Nova Workout. All rights reserved.</div>
+      <div class="footer-copy">© 2026 Nova: Fitness Game. All rights reserved.</div>
     </div>
   </footer>
 </body>
